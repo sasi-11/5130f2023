@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visit Report</title>
+</head>
+<body>
+    <h1>Welcome to SimpleSite</h1>
+    <div class="login">
+        <form id="signup_form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+            <br><label for="pwd">Password:</label>
+            <input type="password" id="pwd" name="pwd" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,128}" required><br>
+            <br><input type="submit" value="Sign Up"><br>
+        </form>
+        <form id="signin_form">
+            <label for="signin_email">Email:</label>
+            <input type="email" id="signin_email" name="signin_email" required><br>
+            <br><label for="signin_pwd">Password:</label>
+            <input type="password" id="pwd1" name="pwd2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,128}" required><br>
+            <br><input type="submit" value="Sign In"><br>
+        </form>
+        <form id="guest_form">
+            <label for="guest_email">Guest UserID (Email):</label>
+            <input type="email" id="guest_email" name="guest_email" required><br>
+            <br> <label for="guest_pwd">Password:</label>
+            <input type="password" id="pwd2" name="pwd2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,128}" required><br>
+            <br><input type="submit" value="Continue as Guest"><br>
+        </form>
+    </div>
+    <script>
+       document.getElementById('pwd').addEventListener('input', function(event) {
+           var pwd = event.target;
+            var pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,128}$/;
+
+            if (!pattern.test(pwd.value)) {
+                pwd.setCustomValidity('Password must contain at least 8 characters, including uppercase, lowercase, and digits.');
+            } else {
+                pwd.setCustomValidity('');
+            }
+        });
+    </script>
+    <script>
+        document.getElementById('pwd1').addEventListener('input', function(event) {
+            var pwd1 = event.target;
+             var pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,128}$/;
+ 
+             if (!pattern.test(pwd1.value)) {
+                 pwd1.setCustomValidity('Password must contain at least 8 characters, including uppercase, lowercase, and digits.');
+             } else {
+                 pwd1.setCustomValidity('');
+             }
+         });
+     </script>
+     <script>
+        document.getElementById('pwd2').addEventListener('input', function(event) {
+            var pwd2 = event.target;
+             var pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,128}$/;
+ 
+             if (!pattern.test(pwd2.value)) {
+                 pwd2.setCustomValidity('Password must contain at least 8 characters, including uppercase, lowercase, and digits.');
+             } else {
+                 pwd2.setCustomValidity('');
+             }
+         });
+     </script>
+     <div class="email-verification-container">
+           <h1 class="email-verification-title">Email Verification</h1>
+           <p class="email-verification-content">Please click the button below to verify your email address:</p>
+           <a href="" class="email-verification-button">Verify Email</a>
+     </div>
+<body>
+    <div class="visit-report">
+        <h2>Previous Visits</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Visit Number</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>01/01/2021</td>
+                    <td>10:00 AM</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>01/10/2021</td>
+                    <td>11:00 AM</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>01/20/2021</td>
+                    <td>10:30 AM</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="location-report">
+        <h2>Your Location</h2>
+        <div id="coordinates"></div>
+        <button onclick="getLocation()">Get Location</button>
+        </div>
+    <script>
+        function getLocation() {
+         if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+         } else {
+            console.log("Geolocation is not supported by this browser.");
+         }
+        }
+        
+        function showPosition(position) {
+         var lat = position.coords.latitude;
+         var lon = position.coords.longitude;
+        
+         var coordinates = document.getElementById("coordinates");
+         coordinates.innerHTML = "Latitude: " + lat + "<br>Longitude: " + lon;
+        }
+        
+        </script>
+
+
+        
+</body>
+</html>
