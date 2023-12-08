@@ -1,0 +1,5 @@
+Title:Distributed Multilevel Secure Data Stream Processing
+
+The data processing requirements of situation monitoring applications, which gather fast data from several sources, calculate findings instantly, and take action in real time, have given rise to the proposal of Data Stream Management Systems (DSMSs). The processing of military applications, which require data with numerous security levels and information flow regulations, is not appropriate for traditional DSMSs. Furthermore, military applications might not be a good fit for a centralised DSMS. We suggest a distributed multilevel secure DSMS system in order to achieve this. We provide an architecture, an implementation, and show how our system can process basic queries.
+
+This is a term paper which is written by me by studying a research paper. This paper explains about the secure data stream which can be used by military sources and other companies.
